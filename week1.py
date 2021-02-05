@@ -7,8 +7,10 @@ teal = "#3C84A4"
 fancy_font = 'Pristina'
 s_font = 'Bell MT'
 type_font = 'Courier'
-comp_font = 'Candara'
+comp_font = 'Goudy Old Style'
 gray = '#DCDBDB'
+gold = '#C6AD20'
+navy = '#0B0850'
 
 
 def combine_funcs(*funcs):
@@ -23,10 +25,10 @@ def check_phone_number(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, color, frame, ne
 
     if (len(d1) > 1) or (len(d2) > 1) or (len(d3) > 1) or (len(d4) > 1) or (len(d5) > 1) or (len(d6) > 1) or \
             (len(d7) > 1) or (len(d8) > 1) or (len(d9) > 1) or (len(d10) > 1):
-        warning_label = Label(frame, text="Each box can only have one character", relief='solid', bg=teal,
-                              font=(fancy_font, '18'))
+        warning_label = Label(frame, text="Each box can only have one character", relief='solid', bg='black',
+                              font=(fancy_font, '18'),  fg='white')
         warning_label.place(anchor=CENTER, relx=0.33, rely=0.9)
-        frame.after(4000, warning_label.destroy)
+        frame.after(3500, warning_label.destroy)
 
     if (d1 == answer[0]) and (d2 == answer[1]) and (d3 == answer[2]) and (d4 == answer[3]) and (d5 == answer[4]) and \
             (d6 == answer[5]) and (d7 == answer[6]) and (d8 == answer[7]) and (d9 == answer[8]) and (d10 == answer[9]):
@@ -35,11 +37,11 @@ def check_phone_number(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, color, frame, ne
         correct_label.image = correct_image
         correct_label.place(anchor=CENTER, relx=0.85, rely=0.75)
 
-        warning_label = Label(frame, text="(Don't actually call the number)", bg=teal,
+        warning_label = Label(frame, text="(Don't actually call the number)", bg='black', fg='white',
                               font=(fancy_font, '18'))
         warning_label.place(anchor=CENTER, relx=0.33, rely=0.9)
 
-        next_btn = Button(frame, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg=color,
+        next_btn = Button(frame, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg=color,
                           command=lambda: next_func())
         next_btn.place(anchor=CENTER, relx=0.65, rely=0.9)
     else:
@@ -51,11 +53,11 @@ def check_phone_number(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, color, frame, ne
 
 def check_gps_coordinates(d1, d2, d3, d4, d5, user_year, color, frame, next_func):
     answer = "45265"
-    year = "1970"
+    year = "23"
 
     if (len(d1) > 1) or (len(d2) > 1) or (len(d3) > 1) or (len(d4) > 1) or (len(d5) > 1):
-        warning_label = Label(frame, text="Each box can only have one character", relief='solid', bg=teal,
-                              font=(fancy_font, '18'))
+        warning_label = Label(frame, text="Each box can only have one character", relief='solid', bg=gold,
+                              font=(comp_font, '18'))
         warning_label.place(anchor=CENTER, relx=0.5, rely=0.3)
         frame.after(4000, warning_label.destroy)
 
@@ -74,17 +76,17 @@ def check_gps_coordinates(d1, d2, d3, d4, d5, user_year, color, frame, next_func
         correct_image = ImageTk.PhotoImage(PIL.Image.open("images/check2.jpg").resize((35, 35)))
         correct_label = Label(frame, image=correct_image)
         correct_label.image = correct_image
-        correct_label.place(anchor=CENTER, relx=0.825, rely=0.75)
+        correct_label.place(anchor=CENTER, relx=0.85, rely=0.75)
 
     else:
         x_image = ImageTk.PhotoImage(PIL.Image.open("images/x.png").resize((35, 35)))
         wrong_label = Label(frame, image=x_image)
         wrong_label.image = x_image
-        wrong_label.place(anchor=CENTER, relx=0.825, rely=0.75)
+        wrong_label.place(anchor=CENTER, relx=0.85, rely=0.75)
 
     if (d1 == answer[0]) and (d2 == answer[1]) and (d3 == answer[2]) and (d4 == answer[3]) and (d5 == answer[4]) and \
             (user_year == year):
-        next_btn = Button(frame, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg=color,
+        next_btn = Button(frame, text="Next", font=(comp_font, '25', 'bold'), fg='white', bg=color,
                           command=lambda: next_func())
         next_btn.place(anchor=CENTER, relx=0.65, rely=0.9)
 
@@ -108,7 +110,7 @@ def check_answer_next(user_entry, answer, relx, rely, color, frame, next_functio
     correct_label.image = correct_image
     correct_label.place(anchor=CENTER, relx=relx + 0.15, rely=rely)
 
-    next_btn = Button(frame, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg=color,
+    next_btn = Button(frame, text="Next", font=(comp_font, '25', 'bold'), fg='white', bg=color,
                       command=lambda: next_function())
     next_btn.place(anchor=CENTER, relx=0.65, rely=0.9)
 
@@ -117,22 +119,35 @@ def frame_one():
     intro_frame.destroy()
 
     global f1
-    f1 = Frame(window, bg=teal)
+    f1 = Frame(window, bg='black')
     f1.pack(expand=1, fill=BOTH)
 
-    top_label = Label(f1, text="You receive a letter...", font=(fancy_font, '30', 'bold'), bg=teal)
-    top_label.place(anchor=CENTER, relx=0.5, rely=0.075)
+    parchment_image = ImageTk.PhotoImage(PIL.Image.open("images/parchment.jpg").resize((875, 350)))
+    w_p = parchment_image.width()
+    h_p = parchment_image.height()
 
-    letter = Label(f1, text="\tSouls lost in blood. We hear their whispers on the wind and watch them haunt this world."
-                            " They are stuck in limbo, trapped in the swamp of their own deviance, but have a lust to "
-                            "cross over to the other side. As they suffer in icy rain, we refuse "
-                            "to turn our backs on this violence. Those who do are frauds. So, we have come out of the "
-                            "darkness looking for an addition to our ranks. If you share in our wrath for those trapped"
-                            " with the living and you're interested in learning more, give us a ring.\n\t\t\t\t~Dante",
-                   wraplength=850, justify=LEFT,
-                   font=(type_font, 20),
-                   bg=teal)
-    letter.place(anchor=CENTER, relx=0.5, rely=0.4)
+    f1.parchment_image = parchment_image
+
+    parchment_canvas = Canvas(f1, width=w_p, height=h_p, highlightthickness=0)
+    parchment_canvas.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    parchment_canvas.create_image(0, 0, anchor=NW, image=parchment_image)
+
+    parchment_canvas.create_text(w_p / 2, h_p / 2, anchor=CENTER, text="\tSouls lost in blood. We hear their whispers on "
+                                                                   "the wind and watch them haunt this world. They "
+                                                                   "are stuck in limbo, trapped in the swamp of their"
+                                                                   " own deviance, but have a lust to cross over to"
+                                                                   " the other side. As they suffer in icy rain, we"
+                                                                   " refuse to turn our backs on this violence. "
+                                                                   "Those who do are frauds. So, we have come out of"
+                                                                   " the darkness looking for an addition to our "
+                                                                   "ranks. If you share in our wrath for those "
+                                                                   "trapped with the living and you're interested in"
+                                                                   " learning more, give us a ring.\n\t\t\t\t~Dante",
+                                 font=(type_font, '20'), width=850, justify=LEFT)
+
+    top_label = Label(f1, text="You receive a letter...", font=(fancy_font, '30', 'bold'), bg='black', fg='white')
+    top_label.place(anchor=CENTER, relx=0.5, rely=0.075)
 
     e1 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
     e1.place(anchor=CENTER, relx=0.25, rely=0.75)
@@ -143,7 +158,7 @@ def frame_one():
     e3 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
     e3.place(anchor=CENTER, relx=0.35, rely=0.75)
 
-    dash1 = Label(f1, font=(fancy_font, '40', 'bold'), text='-', bg=teal)
+    dash1 = Label(f1, font=(fancy_font, '40', 'bold'), text='-', bg='black', fg='white')
     dash1.place(anchor=CENTER, relx=0.4, rely=0.75)
 
     e4 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
@@ -155,7 +170,7 @@ def frame_one():
     e6 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
     e6.place(anchor=CENTER, relx=0.55, rely=0.75)
 
-    dash2 = Label(f1, font=(fancy_font, '40', 'bold'), text='-', bg=teal)
+    dash2 = Label(f1, font=(fancy_font, '40', 'bold'), text='-', bg='black', fg='white')
     dash2.place(anchor=CENTER, relx=0.6, rely=0.75)
 
     e7 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
@@ -170,10 +185,10 @@ def frame_one():
     e10 = Entry(f1, font=(fancy_font, '40', 'bold'), justify=CENTER, width=2)
     e10.place(anchor=CENTER, relx=0.8, rely=0.75)
 
-    submit_btn = Button(f1, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    submit_btn = Button(f1, text="Submit", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
                         command=lambda: check_phone_number(
                               e1.get(), e2.get(), e3.get(), e4.get(), e5.get(), e6.get(), e7.get(), e8.get(), e9.get(),
-                              e10.get(), 'black', f1, frame_two))
+                              e10.get(), 'white', f1, frame_two))
     submit_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
 
@@ -181,7 +196,7 @@ def frame_two():
     f1.destroy()
 
     global f2
-    f2 = Frame(window, bg=teal)
+    f2 = Frame(window, bg='black')
     f2.pack(expand=1, fill=BOTH)
 
     # go to cabin and burn
@@ -205,10 +220,10 @@ def frame_two():
                                  " of furniture or rugs or wall hangings or curtains and the windows are boarded up. "
                                  "Apart from the fireplace, the only other thing in the room is the overwhelming scent "
                                  "of vodka. You decide it’s time to get out.", font=(s_font, '17'),
-                        wraplength=1000, justify=LEFT, bg=teal)
+                        wraplength=1000, justify=LEFT, bg='black', fg='white')
     description.place(anchor=CENTER, relx=0.5, rely=0.42)
 
-    next_btn = Button(f2, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    next_btn = Button(f2, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
                       command=lambda: frame_two_a())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
@@ -217,7 +232,7 @@ def frame_two_a():
     f2.destroy()
 
     global f2a
-    f2a = Frame(window, bg=teal)
+    f2a = Frame(window, bg='black')
     f2a.pack(expand=1, fill=BOTH)
 
     description = Label(f2a, text="\tBefore you move toward the door, you notice that the fire that had been growing in"
@@ -233,10 +248,11 @@ def frame_two_a():
                                   "encircle you.\n\n\tWith the heat bearing down around you and your lungs filled with"
                                   " smoke, you feel your life slipping away and there’s nothing left for you to do to "
                                   "stop it. Curled up in a ball on the ground in the middle of the cabin, everything "
-                                  "goes dark.", font=(s_font, '20'), wraplength=1000, justify=LEFT, bg=teal)
+                                  "goes dark.", font=(s_font, '20'), wraplength=1000, justify=LEFT, bg='black',
+                        fg='white')
     description.place(anchor=CENTER, relx=0.5, rely=0.45)
 
-    next_btn = Button(f2a, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    next_btn = Button(f2a, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
                       command=lambda: frame_three())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
@@ -245,7 +261,7 @@ def frame_three():
     f2a.destroy()
 
     global f3
-    f3 = Frame(window, bg=teal)
+    f3 = Frame(window, bg='black')
     f3.pack(expand=1, fill=BOTH)
 
     # you wake up and there's a ghost!
@@ -258,17 +274,17 @@ def frame_three():
                                  "And, most importantly, you’re still alive. Apart from a few minor burns, an "
                                  "insistent, moderately explosive cough, and your charred clothes, you feel fine."
                                  "\n\n\tYou notice a piece of paper on the ground next to you. Picking it up, you "
-                                 "find that it simply says “Good luck.” With what? You have no idea.\n\nDropping the "
-                                 "paper on the ground where you found it, you decide to head back to your car and get"
-                                 " as far from this cursed place as possible. You search through your pockets, "
+                                 "find that it says “Your first assignment is Greed”.\n\nConfused, you drop the "
+                                 "paper on the ground where you found it, and decide to head back to your car. You want"
+                                 " to get as far from this cursed place as possible. You search through your pockets, "
                                  "relieved to find that your keys are still with you. When you look up from your "
                                  "pockets, about to take a step down the path toward the driveway, you freeze, finding"
                                  " yourself face to face with another person.\n\n\tAlarmed by the sudden and "
                                  "unexpected presence, you jolt backwards.", font=(s_font, '17'), wraplength=1000,
-                        justify=LEFT, bg=teal)
+                        justify=LEFT, bg='black', fg='white')
     description.place(anchor=CENTER, relx=0.5, rely=0.45)
 
-    next_btn = Button(f3, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    next_btn = Button(f3, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
                       command=lambda: frame_four())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
@@ -277,7 +293,7 @@ def frame_four():
     f3.destroy()
 
     global f4
-    f4 = Frame(window, bg=teal)
+    f4 = Frame(window, bg='black')
     f4.pack(expand=1, fill=BOTH)
 
     # greedy ghost introduction!
@@ -293,7 +309,7 @@ def frame_four():
                                  "Wait!\" pleads the old man, reaching a hand out to you. His hand passes through "
                                  "your shoulder, sending goosebumps down your spine. You suddenly realize that the"
                                  " ghostly old man is actually a ghost.", font=(s_font, '16'), wraplength=800,
-                        justify=LEFT, bg=teal)
+                        justify=LEFT, bg='black', fg='white')
     description.place(anchor=CENTER, relx=0.33, rely=0.45)
 
     ghost_image = ImageTk.PhotoImage(PIL.Image.open("images/Sullivan.jpeg").resize((350, 400)))
@@ -301,7 +317,7 @@ def frame_four():
     ghost_label.image = ghost_image
     ghost_label.place(anchor=CENTER, relx=0.8, rely=0.5)
 
-    next_btn = Button(f4, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    next_btn = Button(f4, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
                       command=lambda: frame_four_a())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
@@ -310,7 +326,7 @@ def frame_four_a():
     f4.destroy()
 
     global f4a
-    f4a = Frame(window, bg=teal)
+    f4a = Frame(window, bg='black')
     f4a.pack(expand=1, fill=BOTH)
 
     description = Label(f4a, text="\n\n\t\"They said you would help me,\" "
@@ -330,19 +346,56 @@ def frame_four_a():
                                  "prepared to do anything to increase his wealth. Now that he’s dead, he needs all "
                                  "that money to go back to a good cause. He needs your help finding his fortune and "
                                  "donating it to the right charity. Step 1, drain his bank account.",
-                        font=(s_font, '17'), wraplength=1000, justify=LEFT, bg=teal)
+                        font=(s_font, '17'), wraplength=1000, justify=LEFT, bg='black', fg='white')
     description.place(anchor=CENTER, relx=0.5, rely=0.4)
 
-    next_btn = Button(f4a, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
-                      command=lambda: frame_five())
+    next_btn = Button(f4a, text="Next", font=(fancy_font, '25', 'bold'), fg='black', bg='white',
+                      command=lambda: frame_greed())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
 
-def frame_five():
+def frame_greed():
     f4a.destroy()
 
+    global f10
+    f10 = Frame(window, bg='black')
+    f10.pack(expand=1, fill=BOTH)
+
+    gold_image = ImageTk.PhotoImage(PIL.Image.open("images/gold.jpg").resize((1440, 700)))
+    w = gold_image.width()
+    h = gold_image.height()
+
+    f10.gold_image = gold_image
+
+    gold_canvas = Canvas(f10, width=w, height=h, highlightthickness=0)
+    gold_canvas.place(anchor=CENTER, relx=0.5, rely=0.5)
+
+    gold_canvas.create_image(0, 0, anchor=NW, image=gold_image)
+
+    gold_canvas.create_text(w/2, h/2 - 200, anchor=CENTER, text="Chapter 1", font=('Imprint MT Shadow', '100', 'bold'),
+                                  fill='black', justify=CENTER)
+
+    gold_canvas.create_text(w / 2 - 3, h / 2 - 203, anchor=CENTER, text="Chapter 1",
+                            font=('Imprint MT Shadow', '100', 'bold'),
+                            fill='white', justify=CENTER)
+
+    gold_canvas.create_text(w / 2, h / 2, anchor=CENTER, text="Greed", font=('Imprint MT Shadow', '250', 'bold'),
+                                  fill='black', justify=CENTER)
+
+    gold_canvas.create_text(w / 2 - 3, h / 2 - 3, anchor=CENTER, text="Greed", font=('Imprint MT Shadow', '250', 'bold'),
+                            fill='white', justify=CENTER)
+
+    start_button = Button(gold_canvas, text="Start",
+                          font=(comp_font, '40', 'bold'), fg="white", bg="black",
+                          command=lambda: frame_five(), relief='raised')
+    start_button.place(anchor=CENTER, relx=0.5, rely=0.85)
+
+
+def frame_five():
+    f10.destroy()
+
     global f5
-    f5 = Frame(window, bg=teal)
+    f5 = Frame(window, bg=gold)
     f5.pack(expand=1, fill=BOTH)
 
     global answer_list
@@ -353,88 +406,72 @@ def frame_five():
 
     top_label = Label(f5, text="After logging into Howard's bank account, a security question pops up to verify your "
                                "identity.",
-                      font=(fancy_font, '25', 'bold'), bg=teal)
+                      font=(comp_font, '25', 'bold'), bg=gold)
     top_label.place(anchor=CENTER, relx=0.5, rely=0.05)
 
     # security question frame
-    question_frame = Frame(f5, bg='#DCDBDB', borderwidth=3, relief='solid')
+    question_frame = Frame(f5, bg=gray, borderwidth=3, relief='solid')
     question_frame.place(anchor=CENTER, relx=0.5, rely=0.175)
     # question_frame.grid(row=1)
 
     question = Label(question_frame, text="Where was your third honeymoon?",
-                     font=(comp_font, '25'), bg='#DCDBDB')
+                     font=(comp_font, '25'), bg=gray)
     question.pack(side=TOP, pady=5, padx=5)
 
     q_entry = Entry(question_frame, font=(comp_font, '20'), justify=CENTER)
     q_entry.pack(side=BOTTOM, pady=5)
 
-    instruction_frame_row_one = Frame(f5, bg=teal)
+    instruction_frame_row_one = Frame(f5, bg=gold)
     instruction_frame_row_one.place(anchor=CENTER, relx=0.5, rely=0.34)
 
-    label_one = Label(instruction_frame_row_one, text="Howard has been ", font=(fancy_font, '25'), bg=teal)
+    label_one = Label(instruction_frame_row_one, text="Howard has been ", font=(comp_font, '25'), bg=gold)
     label_one.pack(side=LEFT)
 
-    label_two = Label(instruction_frame_row_one, text="absent", font=(fancy_font, '25', 'bold'), bg=teal)
+    label_two = Label(instruction_frame_row_one, text="absent", font=(comp_font, '25', 'bold'), bg=gold)
     label_two.pack(side=LEFT)
 
     label_three = Label(instruction_frame_row_one, text="for most of his life... Never taking ",
-                        font=(fancy_font, '25'), bg=teal)
+                        font=(comp_font, '25'), bg=gold)
     label_three.pack(side=LEFT)
 
-    instruction_frame_row_two = Frame(f5, bg=teal)
+    instruction_frame_row_two = Frame(f5, bg=gold)
     instruction_frame_row_two.place(anchor=CENTER, relx=0.5, rely=0.44)
 
-    label_four = Label(instruction_frame_row_one, text="stock", font=(fancy_font, '25', 'bold'), bg=teal)
+    label_four = Label(instruction_frame_row_one, text="stock", font=(comp_font, '25', 'bold'), bg=gold)
     label_four.pack(side=LEFT)
 
-    label_five = Label(instruction_frame_row_one, text="of what really matters.", font=(fancy_font, '25'), bg=teal)
+    label_five = Label(instruction_frame_row_one, text="of what really matters.", font=(comp_font, '25'), bg=gold)
     label_five.pack(side=LEFT)
 
     label_six = Label(instruction_frame_row_two, text="His mind ",
-                      font=(fancy_font, '25'), bg=teal)
+                      font=(comp_font, '25'), bg=gold)
     label_six.pack(side=LEFT)
 
-    label_seven = Label(instruction_frame_row_two, text="scrambles", font=(fancy_font, '25', 'bold'), bg=teal)
+    label_seven = Label(instruction_frame_row_two, text="scrambles", font=(comp_font, '25', 'bold'), bg=gold)
     label_seven.pack(side=LEFT)
 
     label_eight = Label(instruction_frame_row_two, text="to no avail. So you click on the hint and this box pops up.",
-                        font=(fancy_font, '25'), bg=teal)
+                        font=(comp_font, '25'), bg=gold)
     label_eight.pack(side=LEFT)
 
     # stock information
-    stock_frame = Frame(f5, bg='#DCDBDB', borderwidth=3, relief='solid')
+    stock_frame = Frame(f5, bg=gray, borderwidth=3, relief='solid')
     stock_frame.place(anchor=CENTER, relx=0.5, rely=0.65)
     # stock_frame.grid(row=3)
 
-    stock1 = Label(stock_frame, text="ESCA", font=(comp_font, '40'), bg='#DCDBDB')
+    stock1 = Label(stock_frame, text="ESCA", font=(comp_font, '40'), bg=gray)
     stock1.grid(row=0, column=0, padx=20, pady=10)
 
-    stock2 = Label(stock_frame, text="EXPR", font=(comp_font, '40'), bg='#DCDBDB')
+    stock2 = Label(stock_frame, text="EXPR", font=(comp_font, '40'), bg=gray)
     stock2.grid(row=1, column=0, padx=20, pady=10)
 
-    stock3 = Label(stock_frame, text="ABNB", font=(comp_font, '40'), bg='#DCDBDB')
+    stock3 = Label(stock_frame, text="ABNB", font=(comp_font, '40'), bg=gray)
     stock3.grid(row=0, column=1, padx=20, pady=10)
 
-    stock4 = Label(stock_frame, text="GLOB", font=(comp_font, '40'), bg='#DCDBDB')
+    stock4 = Label(stock_frame, text="GLOB", font=(comp_font, '40'), bg=gray)
     stock4.grid(row=1, column=1, padx=20, pady=10)
 
-    # stock5 = Label(stock_frame, text="{:<8} :  ${:>3}.{:>3}".format("FB", "20", "91"), font=(comp_font, '25'),
-    #                bg='#DCDBDB')
-    # stock5.grid(row=0, column=1, padx=7, pady=2)
-    #
-    # stock6 = Label(stock_frame, text="{:<8} :  ${:>3}.{:>3}".format("AMZN", "232", "89"), font=(comp_font, '25'),
-    #                bg='#DCDBDB')
-    # stock6.grid(row=1, column=1, padx=7, pady=2)
-    #
-    # stock7 = Label(stock_frame, text="{:<8} :  ${:>3}.{:>3}".format("NINOY", "24", "95"), font=(comp_font, '25'),
-    #                bg='#DCDBDB')
-    # stock7.grid(row=2, column=1, padx=7, pady=2)
-    #
-    # stock8 = Label(stock_frame, text="{:<8} :  ${:>3}.{:>3}".format("GRPN", "105", "00"), font=(comp_font, '25'),
-    #                bg='#DCDBDB')
-    # stock8.grid(row=3, column=1, padx=7, pady=2)
-
-    submit_btn = Button(f5, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    submit_btn = Button(f5, text="Submit", font=(comp_font, '25', 'bold'), bg='black', fg='white',
                         command=lambda: check_answer_next(q_entry.get(), "easter island", 0.5, 0.217, 'black', f5,
                                                           frame_six))
     submit_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
@@ -444,17 +481,17 @@ def frame_six():
     f5.destroy()
 
     global f6
-    f6 = Frame(window, bg=teal)
+    f6 = Frame(window, bg=gold)
     f6.pack(expand=1, fill=BOTH)
 
     purple = '#DEB3DA'
 
     top_label = Label(f6, text="Like any good investor, Howard diversified his portfolio. Now you must find his "
-                               "gold bars.", font=(fancy_font, '25', 'bold'), bg=teal)
+                               "gold bars.", font=(comp_font, '25', 'bold'), bg=gold)
     top_label.place(anchor=CENTER, relx=0.5, rely=0.05)
 
     # gps coordinate frame
-    gps_frame = Frame(f6, bg=teal)
+    gps_frame = Frame(f6, bg=gold)
     gps_frame.place(anchor=CENTER, relx=0.5, rely=0.175)
 
     # gem coordinates
@@ -572,7 +609,7 @@ def frame_six():
 
     # gold bar location description
     description = Label(f6, text="Buried near the place where a branch of the arched tree meets the base of another "
-                                 "tree.", wraplength=500, bg=purple, font=(comp_font, '20'), borderwidth=3,
+                                 "tree.", wraplength=400, bg=purple, font=(comp_font, '20'), borderwidth=3,
                         relief='solid', padx=5, pady=5)
     description.place(anchor=CENTER, relx=0.33, rely=0.75)
 
@@ -580,13 +617,13 @@ def frame_six():
     question_frame = Frame(f6, bg=purple, borderwidth=3, relief='solid')
     question_frame.place(anchor=CENTER, relx=0.66, rely=0.75)
 
-    question = Label(question_frame, text="When did his daughter die?", font=(comp_font, '20'), bg=purple)
+    question = Label(question_frame, text="How many gold bars did he cash in?", font=(comp_font, '20'), bg=purple)
     question.pack(side=TOP, pady=5, padx=5)
 
     q_entry = Entry(question_frame, font=(comp_font, '20'), justify=CENTER)
     q_entry.pack(side=BOTTOM, pady=5)
 
-    submit_btn = Button(f6, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    submit_btn = Button(f6, text="Submit", font=(comp_font, '25', 'bold'), fg='white', bg='black',
                         command=lambda: combine_funcs(check_gps_coordinates(entry1.get(), entry2.get(), entry3.get(),
                                                                             entry4.get(), entry5.get(), q_entry.get(),
                                                                             'black', f6, frame_seven)))
@@ -603,7 +640,7 @@ def enter_button():
     current = text['text']
 
     if current == "81362":
-        next_btn = Button(f7, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+        next_btn = Button(f7, text="Next", font=(comp_font, '25', 'bold'), fg='white', bg='black',
                           command=lambda: frame_eight())
         next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
@@ -617,14 +654,14 @@ def frame_seven():
     f6.destroy()
 
     global f7
-    f7 = Frame(window, bg=teal)
+    f7 = Frame(window, bg=gold)
     f7.pack(expand=1, fill=BOTH)
 
     # green = '#27BD24'
     green = '#BFF2FA'
 
     top_label = Label(f7, text="You are able to find his safety deposit box inside the bank, but you need a "
-                               "combination.", font=(fancy_font, '25', 'bold'), bg=teal)
+                               "combination.", font=(comp_font, '25', 'bold'), bg=gold)
     top_label.place(anchor=CENTER, relx=0.5, rely=0.1)
 
     # combo description frame
@@ -726,7 +763,7 @@ def frame_eight():
     f7.destroy()
 
     global f8
-    f8 = Frame(window, bg=teal)
+    f8 = Frame(window, bg=gold)
     f8.pack(expand=1, fill=BOTH)
 
     global answer_list
@@ -738,9 +775,9 @@ def frame_eight():
     user_list = []
 
     top_label = Label(f8, text="After retrieving the gold bars from the safety deposit box, you are ready to donate "
-                               "the money.\nHoward wants to spread his fortune around, so he has picked ten charities. "
-                               "Order them to figure out how much to donate to each.", font=(fancy_font, '20', 'bold'),
-                      bg=teal)
+                               "the money. Howard wants to spread his fortune around, so he has picked ten charities. "
+                               "Order them to figure out how much to donate to each.", wraplength=1200,
+                      font=(comp_font, '20', 'bold'), bg=gold)
     top_label.place(anchor=CENTER, relx=0.5, rely=0.07)
 
     # information frame
@@ -904,10 +941,10 @@ def frame_eight():
     row10_entry.grid(row=10, column=1)
 
     helpful_label = Label(f8, text="Be sure to type your answers as seen in the logo (e.g. WWF, Make-A-Wish, "
-                                   "Bill & ...)", wraplength=200, font=(fancy_font, '15'), bg=teal)
+                                   "Bill & ...)", wraplength=200, font=(comp_font, '15'), bg=gold)
     helpful_label.place(anchor=CENTER, relx=0.8, rely=0.9)
 
-    submit_btn = Button(f8, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+    submit_btn = Button(f8, text="Submit", font=(comp_font, '25', 'bold'), fg='white', bg='black',
                         command=lambda: combine_funcs(check_answer_next(row1_entry.get(), "feeding america", 0.81, 0.5,
                                                                         'black', f8, frame_nine),
                                                       check_answer_next(row2_entry.get(), "st. jude children's research"
@@ -939,7 +976,7 @@ def frame_nine():
     f8.destroy()
 
     global f9
-    f9 = Frame(window, bg=teal)
+    f9 = Frame(window, bg=gold)
     f9.pack(expand=1, fill=BOTH)
 
     top_label = Label(f9, text="You disperse Howard's fortune to the charities of his choice, thus completing his "
@@ -947,34 +984,44 @@ def frame_nine():
                                " you for all your help along the way.\n Before you get the chance to ask him anything "
                                "about what happened in the cabin or the Society of Divine Deviants, his ghost dissolves"
                                " away before your eyes, taking any answers with him.", wraplength=800,
-                      font=(s_font, '30', 'bold'), bg=teal)
+                      font=(s_font, '30', 'bold'), bg=gold)
     top_label.place(anchor=CENTER, relx=0.5, rely=0.4)
 
-    congrats_label = Label(f9, text="Congratulations! You have finished Week 1. Please email us a TV show "
-                                    "recommendation so we can know you completed this week :)", wraplength=800,
-                           font=(s_font, '20', 'bold'), bg=teal)
-    congrats_label.place(anchor=CENTER, relx=0.5, rely=0.9)
+    congrats_label = Label(f9, text="Congratulations! You have finished Week 1. Please email sarah.benton.18@cnu.edu a "
+                                    "TV show recommendation so we can know you completed this week :)", wraplength=800,
+                           font=(s_font, '20', 'bold'), bg=gold)
+    congrats_label.place(anchor=CENTER, relx=0.5, rely=0.875)
 
 
 if __name__ == "__main__":
     window = Tk()
     window.title("Divine Deviance Week 1")
-    window.state('zoomed')
+    window.geometry("1440x900")
 
-    intro_frame = Frame(window, bg=teal)
+    intro_frame = Frame(window, bg='black')
     intro_frame.pack(expand=1, fill=BOTH)
 
-    lk_label = Label(intro_frame, text="Lock and Key Club presents...", font=(fancy_font, '50', 'bold'), bg=teal)
-    lk_label.place(anchor=CENTER, relx=0.5, rely=.15)
+    fire_image = ImageTk.PhotoImage(PIL.Image.open("images/sparks.jpg"))
+    w = fire_image.width()
+    h = fire_image.height()
 
-    intro_label = Label(intro_frame, text="Divine Deviance:\nWeek One", font=(fancy_font, '100', 'bold'), borderwidth=5,
-                        relief='solid', padx=10, bg=teal)
-    intro_label.place(anchor=CENTER, relx=0.5, rely=0.5)
+    background_canvas = Canvas(intro_frame, width=w, height=h, highlightthickness=0)
+    background_canvas.place(anchor=CENTER, relx=0.5, rely=0.5)
 
-    start_button = Button(intro_frame, text="Start", font=(fancy_font, '25', 'bold'), fg="white", bg="black",
-                          command=lambda: frame_one())
-    start_button.place(anchor=CENTER, relx=0.5, rely=0.9)
+    background_canvas.create_image(0, 0, anchor=NW, image=fire_image)
 
-    # print(font.families())
+    background_canvas.create_text(w/2, h/2 + 25, anchor=S, text="Divine Deviance", font=(fancy_font, '150', 'bold'),
+                                  fill='white', justify=CENTER)
+    background_canvas.create_text(w/2, h/2 - 240, anchor=CENTER, text="Lock and Key Club presents...",
+                                  font=(fancy_font, '40', 'bold'),
+                                  fill='white', justify=CENTER)
+
+    start_button = Button(background_canvas, text="Begin Week\nOne's Journey",
+                          font=(s_font, '40', 'bold'), fg="white", bg="black",
+                          command=lambda: frame_one(), relief='raised')
+    start_button.place(anchor=CENTER, relx=0.5, rely=0.65)
+
+    # 'Goudy Old Style'
+    # 'Garamond'
 
     window.mainloop()

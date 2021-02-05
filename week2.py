@@ -62,51 +62,7 @@ def check_answer_next(user_entry, answer, relx, rely, color, frame, next_functio
 
 
 def temp():
-    # TODO - change the destroy when ready
-    intro_frame.destroy()
-
-    global f3
-    f3 = Frame(window, bg=teal)
-    f3.pack(expand=1, fill=BOTH)
-
-    question_frame = Frame(f3, bg=gray, borderwidth=3, relief='solid')
-    question_frame.place(anchor=N, relx=0.5, rely=0.01)
-
-    question_label = Label(question_frame, text="What is Peter's address?", font=(s_font, '25', 'bold'), bg=gray)
-    question_label.pack(side=TOP, pady=(10, 5), padx=20)
-
-    entry = Text(question_frame, height=3, font=(s_font, '22'), width=20)
-    entry.pack(side=TOP, pady=(5, 10), padx=20)
-
-    clue_font = s_font
-
-    instructions_frame = Frame(f3, bg=teal)
-    instructions_frame.place(anchor=CENTER, relx=0.5, rely=0.35)
-
-    instructions_a = Label(instructions_frame, text="V", font=(clue_font, '25', 'bold'), underline=0, bg=teal)
-    instructions_a.pack(side=LEFT)
-
-    instructions_b = Label(instructions_frame, text="igenere: You will find your key shift if you seek \"advice "
-                                                    "from a caterpillar.\" ", font=(clue_font, '25'), bg=teal)
-    instructions_b.pack(side=LEFT)
-
-    cipher_text = Label(f3, bg=teal, font=(clue_font, '25'), text="Vvrirtxlaietoes! Lru lzg hzwbq e jrxet lvp ta "
-                                                                  "wfqjzfu flba omxuwz. Virr kobyg. Qhn’yi clfsji "
-                                                                  "bsprv. Mvs rntsy ct dhpg gxgxizw iwfe ie yrsw re "
-                                                                  "xzgwh dlf burzw gnca faalig gi ov cypvaakma "
-                                                                  "ryurgsmvv, uo ivfea ez tyhzm odo kbzoe vx oa "
-                                                                  "vued. Gvlcon, xum jntzv pqwao sw lhba qvpsmt arw "
-                                                                  "iz bioc yhb xf yv rz Diklbfrv yxq tefl Gnnwk.",
-                        wraplength=700)
-    cipher_text.place(anchor=CENTER, relx=0.5, rely=0.6)
-
-
-
-    # TODO - change next function
-    submit_btn = Button(f3, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
-                        command=lambda: check_answer_singular(entry.get("1.0", END), "address", 0.55, 0.19, 'black', f3,
-                                                              temp_next()))
-    submit_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
+    pass
 
 
 def temp_next():
@@ -161,17 +117,180 @@ def intro_three():
     intro_frame_three = Frame(window, bg=teal)
     intro_frame_three.pack(expand=1, fill=BOTH)
 
+    # TODO - change to right function
     next_btn = Button(intro_frame_one, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
                       command=lambda: p_frame_one())
     next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
 
 def p_frame_one():
-    intro_frame_three.destroy()
+    intro_frame.destroy()
 
-    global fp1
-    fp1 = Frame(window, bg=teal)
-    fp1.pack(expand=1, fill=BOTH)
+    global fp
+    if fp.winfo_exists():
+        fp.destroy()
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_label = Label(picture_frame, text="Start here:", font=(s_font, '50', 'bold'), bg=teal)
+    picture_label.pack(side=TOP)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/start.png").resize((475, 425)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=TOP)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_two())
+    next_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
+
+
+def p_frame_two():
+    global fp
+    fp.destroy()
+
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/p1.png").resize((500, 300)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=LEFT, padx=20)
+
+    picture_img2 = ImageTk.PhotoImage(PIL.Image.open("images/images2/p2.png").resize((500, 300)))
+    img2 = Label(picture_frame, image=picture_img2, bg='black', borderwidth=3)
+    img2.image = picture_img2
+    img2.pack(side=LEFT, padx=20)
+
+    prev_btn = Button(fp, text="Previous", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_one(), padx=5)
+    prev_btn.place(anchor=CENTER, relx=0.45, rely=0.9)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_three())
+    next_btn.place(anchor=CENTER, relx=0.55, rely=0.9)
+
+
+def p_frame_three():
+    global fp
+    fp.destroy()
+
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/p3.png").resize((500, 300)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=LEFT, padx=20)
+
+    picture_img2 = ImageTk.PhotoImage(PIL.Image.open("images/images2/p4.png").resize((500, 300)))
+    img2 = Label(picture_frame, image=picture_img2, bg='black', borderwidth=3)
+    img2.image = picture_img2
+    img2.pack(side=LEFT, padx=20)
+
+    prev_btn = Button(fp, text="Previous", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_two(), padx=5)
+    prev_btn.place(anchor=CENTER, relx=0.45, rely=0.9)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_four())
+    next_btn.place(anchor=CENTER, relx=0.55, rely=0.9)
+
+
+def p_frame_four():
+    global fp
+    fp.destroy()
+
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/p5.png").resize((500, 300)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=LEFT, padx=20)
+
+    picture_img2 = ImageTk.PhotoImage(PIL.Image.open("images/images2/p6.png").resize((500, 300)))
+    img2 = Label(picture_frame, image=picture_img2, bg='black', borderwidth=3)
+    img2.image = picture_img2
+    img2.pack(side=LEFT, padx=20)
+
+    prev_btn = Button(fp, text="Previous", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_three(), padx=5)
+    prev_btn.place(anchor=CENTER, relx=0.45, rely=0.9)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_five())
+    next_btn.place(anchor=CENTER, relx=0.55, rely=0.9)
+
+
+def p_frame_five():
+    global fp
+    fp.destroy()
+
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/p7.png").resize((500, 300)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=LEFT, padx=20)
+
+    picture_img2 = ImageTk.PhotoImage(PIL.Image.open("images/images2/p8.png").resize((500, 300)))
+    img2 = Label(picture_frame, image=picture_img2, bg='black', borderwidth=3)
+    img2.image = picture_img2
+    img2.pack(side=LEFT, padx=20)
+
+    prev_btn = Button(fp, text="Previous", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_four(), padx=5)
+    prev_btn.place(anchor=CENTER, relx=0.45, rely=0.9)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_six())
+    next_btn.place(anchor=CENTER, relx=0.55, rely=0.9)
+
+
+def p_frame_six():
+    global fp
+    fp.destroy()
+
+    fp = Frame(window, bg=teal)
+    fp.pack(expand=1, fill=BOTH)
+
+    picture_frame = Frame(fp, bg=teal)
+    picture_frame.place(anchor=CENTER, relx=0.5, rely=0.4)
+
+    picture_img = ImageTk.PhotoImage(PIL.Image.open("images/images2/p7.png").resize((500, 300)))
+    img = Label(picture_frame, image=picture_img, bg='black', borderwidth=3)
+    img.image = picture_img
+    img.pack(side=LEFT, padx=20)
+
+    picture_img2 = ImageTk.PhotoImage(PIL.Image.open("images/images2/p8.png").resize((500, 300)))
+    img2 = Label(picture_frame, image=picture_img2, bg='black', borderwidth=3)
+    img2.image = picture_img2
+    img2.pack(side=LEFT, padx=20)
+
+    prev_btn = Button(fp, text="Previous", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_four(), padx=5)
+    prev_btn.place(anchor=CENTER, relx=0.45, rely=0.9)
+
+    next_btn = Button(fp, text="Next", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                      command=lambda: p_frame_six())
+    next_btn.place(anchor=CENTER, relx=0.55, rely=0.9)
 
 
 def frame_two():
@@ -284,25 +403,72 @@ def frame_two():
                        bg=gray)
     row_five_c.pack(side=LEFT)
 
-    # TODO - change next function
     submit_btn = Button(f2, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
                         command=lambda: combine_funcs(check_answer_next(row_half_b.get(), "square", 0.75, 0.4,
-                                                                        'black', f2, temp_next()),
+                                                                        'black', f2, frame_three()),
                                                       check_answer_next(row_one_b.get(), "sparkling", 0.75, 0.47,
-                                                                        'black', f2, temp_next()),
+                                                                        'black', f2, frame_three()),
                                                       check_answer_next(row_two_b.get(), "brown", 0.75, 0.54,
-                                                                        'black', f2, temp_next()),
+                                                                        'black', f2, frame_three()),
                                                       check_answer_next(row_three_b.get(), "promises", 0.75, 0.61,
-                                                                        'black', f2, temp_next()),
+                                                                        'black', f2, frame_three()),
                                                       check_answer_next(row_four_b.get(), "raven's wing", 0.75, 0.68,
-                                                                        'black', f2, temp_next()),
+                                                                        'black', f2, frame_three()),
                                                       check_answer_next(row_five_b.get(), "sex maniac", 0.75, 0.75,
-                                                                        'black', f2, temp_next())))
+                                                                        'black', f2, frame_three())))
+    submit_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
+
+
+def frame_three():
+    f2.destroy()
+
+    global f3
+    f3 = Frame(window, bg=teal)
+    f3.pack(expand=1, fill=BOTH)
+
+    question_frame = Frame(f3, bg=gray, borderwidth=3, relief='solid')
+    question_frame.place(anchor=N, relx=0.5, rely=0.01)
+
+    question_label = Label(question_frame, text="What is Peter's address?", font=(s_font, '25', 'bold'), bg=gray)
+    question_label.pack(side=TOP, pady=(10, 5), padx=20)
+
+    entry = Text(question_frame, height=3, font=(s_font, '22'), width=20)
+    entry.pack(side=TOP, pady=(5, 10), padx=20)
+
+    clue_font = s_font
+
+    instructions_frame = Frame(f3, bg=teal)
+    instructions_frame.place(anchor=CENTER, relx=0.5, rely=0.35)
+
+    instructions_a = Label(instructions_frame, text="V", font=(clue_font, '25', 'bold'), underline=0, bg=teal)
+    instructions_a.pack(side=LEFT)
+
+    instructions_b = Label(instructions_frame, text="igenere: You will find your key shift if you seek \"advice "
+                                                    "from a caterpillar.\" ", font=(clue_font, '25'), bg=teal)
+    instructions_b.pack(side=LEFT)
+
+    cipher_text = Label(f3, bg=teal, font=(clue_font, '25'), text="Vvrirtxlaietoes! Lru lzg hzwbq e jrxet lvp ta "
+                                                                  "wfqjzfu flba omxuwz. Virr kobyg. Qhn’yi clfsji "
+                                                                  "bsprv. Mvs rntsy ct dhpg gxgxizw iwfe ie yrsw re "
+                                                                  "xzgwh dlf burzw gnca faalig gi ov cypvaakma "
+                                                                  "ryurgsmvv, uo ivfea ez tyhzm odo kbzoe vx oa "
+                                                                  "vued. Gvlcon, xum jntzv pqwao sw lhba qvpsmt arw "
+                                                                  "iz bioc yhb xf yv rz Diklbfrv yxq tefl Gnnwk.",
+                        wraplength=700)
+    cipher_text.place(anchor=CENTER, relx=0.5, rely=0.6)
+
+    # TODO - change next function
+    submit_btn = Button(f3, text="Submit", font=(fancy_font, '25', 'bold'), fg='white', bg='black',
+                        command=lambda: check_answer_singular(entry.get("1.0", END), "address", 0.55, 0.19, 'black', f3,
+                                                              temp_next()))
     submit_btn.place(anchor=CENTER, relx=0.5, rely=0.9)
 
 
 if __name__ == "__main__":
     window = Tk()
+    global fp
+    fp = Frame(window, bg=teal)
+
     window.title("Divine Deviance Week 2")
     window.state('zoomed')
 
@@ -317,7 +483,7 @@ if __name__ == "__main__":
     intro_label.place(anchor=CENTER, relx=0.5, rely=0.5)
 
     start_button = Button(intro_frame, text="Start", font=(fancy_font, '25', 'bold'), fg="white", bg="black",
-                          command=lambda: temp())
+                          command=lambda: p_frame_one())
     start_button.place(anchor=CENTER, relx=0.5, rely=0.9)
 
     window.mainloop()
