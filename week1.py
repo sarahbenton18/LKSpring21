@@ -1021,7 +1021,4 @@ if __name__ == "__main__":
                           command=lambda: frame_one(), relief='raised')
     start_button.place(anchor=CENTER, relx=0.5, rely=0.65)
 
-    # 'Goudy Old Style'
-    # 'Garamond'
-
     window.mainloop()
