@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a137c231-5579-4d34-b102-c3ea20cebf44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/week3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/images2/lust.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/week1.py" beforeDir="false" afterPath="$PROJECT_DIR$/week1.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/week2.py" beforeDir="false" afterPath="$PROJECT_DIR$/week2.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +16,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6120">
-              <caret line="363" column="7" selection-start-line="363" selection-start-column="4" selection-end-line="363" selection-end-column="7" />
+            <state relative-caret-position="160">
+              <caret line="758" column="66" lean-forward="true" selection-start-line="689" selection-start-column="3" selection-end-line="758" selection-end-column="66" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -40,11 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/week2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-636">
-              <caret line="901" column="16" selection-start-line="901" selection-start-column="16" selection-end-line="901" selection-end-column="16" />
+            <state relative-caret-position="150">
+              <caret line="540" column="4" selection-start-line="540" selection-start-column="4" selection-end-line="543" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#21#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/week3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="589" column="17" selection-start-line="589" selection-start-column="17" selection-end-line="589" selection-end-column="17" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -53,6 +62,13 @@
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -71,6 +87,8 @@
       <find>check_answer_next</find>
       <find>society of</find>
       <find>gol</find>
+      <find>sparkling</find>
+      <find>ahead</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -81,6 +99,7 @@
       <list>
         <option value="$PROJECT_DIR$/week1.py" />
         <option value="$PROJECT_DIR$/week2.py" />
+        <option value="$PROJECT_DIR$/week3.py" />
       </list>
     </option>
   </component>
@@ -111,7 +130,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.week2">
+  <component name="RunManager" selected="Python.week3">
     <configuration name="bender_quiz_gui" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="LKSpring21" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -175,8 +194,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="week3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="LKSpring21" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/week3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.week3" />
         <item itemvalue="Python.week2" />
         <item itemvalue="Python.week1" />
         <item itemvalue="Python.bender_quiz_gui" />
@@ -220,13 +261,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/Image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="2890" selection-start-line="2890" selection-end-line="2890" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/tkinter/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -234,13 +268,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/week1.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/site-packages/PIL/Image.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6120">
-          <caret line="363" column="7" selection-start-line="363" selection-start-column="4" selection-end-line="363" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="117">
+          <caret line="2890" selection-start-line="2890" selection-end-line="2890" />
         </state>
       </provider>
     </entry>
@@ -256,8 +287,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/week2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-636">
-          <caret line="901" column="16" selection-start-line="901" selection-start-column="16" selection-end-line="901" selection-end-column="16" />
+        <state relative-caret-position="150">
+          <caret line="540" column="4" selection-start-line="540" selection-start-column="4" selection-end-line="543" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="758" column="66" lean-forward="true" selection-start-line="689" selection-start-column="3" selection-end-line="758" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/week3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="589" column="17" selection-start-line="589" selection-start-column="17" selection-end-line="589" selection-end-column="17" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
